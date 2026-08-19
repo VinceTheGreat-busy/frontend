@@ -10,12 +10,12 @@ export default function Layout() {
             <Header />
 
             <div>
-                <aside>
+                <div>
                     <Sidebar
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}
                     />
-                </aside>
+                </div>
 
                 <main>
                     <Outlet />
