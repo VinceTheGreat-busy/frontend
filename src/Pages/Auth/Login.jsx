@@ -191,16 +191,6 @@ export default function Login() {
                             </button>
                         </div>
 
-                        {/* Forgot Password */}
-                        <div className="flex justify-center">
-                            <Link
-                                to="/forgot-password"
-                                className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline dark:text-blue-500"
-                            >
-                                Forgot password?
-                            </Link>
-                        </div>
-
                         {/* Submit */}
                         <button
                             type="submit"
@@ -217,6 +207,15 @@ export default function Login() {
                             )}
                         </button>
 
+                        {/* Forgot Password */}
+                        <div className="flex justify-center">
+                            <Link
+                                to="/forgot-password"
+                                className="text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline dark:text-blue-500"
+                            >
+                                Forgot password?
+                            </Link>
+                        </div>
                     </form>
 
                     {/* Register */}
