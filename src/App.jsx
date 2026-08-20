@@ -22,7 +22,6 @@ function Pages() {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Route>
