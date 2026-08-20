@@ -104,10 +104,13 @@ export default function AuthProvider({ children }) {
 
             // Register
             const response = await api.post("/api/register", {
-                name,
                 email,
                 password,
-                password_confirmation
+                password_confirmation,
+                first_name,
+                last_name,
+                phone,
+                username
             });
 
             setUser(response.data.user);

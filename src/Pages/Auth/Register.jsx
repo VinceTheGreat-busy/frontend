@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Check, X } from "lucide-react";
+import { useAuth } from "../../Context/AuthProvider";
 
 export default function Register() {
     const [showPassword, setShowPassword] = useState(false);
@@ -38,10 +39,19 @@ export default function Register() {
         passwordRequirements.uppercase &&
         passwordRequirements.number;
 
+    const { register } = useAuth();
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(form);
+        try {
+            register(email, password, password_confirmation, first_name, last_name, phone, username)
+            navigate("/dashboard")
+
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     const labelClass = `
@@ -225,10 +235,10 @@ export default function Register() {
                                 placeholder=" "
                                 required
                                 className={`${inputClass} pr-10 ${form.password_confirmation.length > 0
-                                        ? passwordsMatch
-                                            ? "border-green-500 focus:border-green-500"
-                                            : "border-red-500 focus:border-red-500"
-                                        : ""
+                                    ? passwordsMatch
+                                        ? "border-green-500 focus:border-green-500"
+                                        : "border-red-500 focus:border-red-500"
+                                    : ""
                                     }`}
                             />
 
@@ -263,8 +273,8 @@ export default function Register() {
                             {form.password_confirmation.length > 0 && (
                                 <div
                                     className={`flex items-center gap-1.5 mt-2 text-xs font-medium ${passwordsMatch
-                                            ? "text-green-600"
-                                            : "text-red-600"
+                                        ? "text-green-600"
+                                        : "text-red-600"
                                         }`}
                                 >
                                     {passwordsMatch ? (
@@ -468,8 +478,8 @@ function PasswordRequirement({ valid, text }) {
     return (
         <div
             className={`flex items-center gap-2 text-xs ${valid
-                    ? "text-green-600"
-                    : "text-gray-400 dark:text-gray-500"
+                ? "text-green-600"
+                : "text-gray-400 dark:text-gray-500"
                 }`}
         >
             {valid ? (
