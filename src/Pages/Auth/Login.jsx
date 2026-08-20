@@ -128,7 +128,7 @@ export default function Login() {
                         )}
 
                         {/* Email */}
-                        <div className="relative">
+                        <div className="relative z-0">
                             <input
                                 type="email"
                                 name="email"
@@ -151,7 +151,7 @@ export default function Login() {
                         </div>
 
                         {/* Password */}
-                        <div className="relative">
+                        <div className="relative z-0">
                             <input
                                 type={seePass ? "text" : "password"}
                                 name="password"
